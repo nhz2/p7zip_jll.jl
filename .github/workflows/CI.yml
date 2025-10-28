@@ -45,4 +45,4 @@ jobs:
           Pkg.activate("test")
           Pkg.instantiate()
       - name: Run test
-        run: julia --color=yes --project=test runtests.jl
+        run: julia --color=yes --project=test test/runtests.jl
