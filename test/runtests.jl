@@ -7,9 +7,7 @@ using TranscodingStreams
 using SHA
 using Test
 
-function decompress_stream_7z(compressed_path)
-    open(`$(p7zip()) x $compressed_path -so`)
-end
+run(`$(p7zip()) i`)
 
 struct MultiWriter <: IO
     writers::Vector{IO}
