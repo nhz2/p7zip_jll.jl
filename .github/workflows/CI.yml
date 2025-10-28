@@ -37,4 +37,10 @@ jobs:
           version: ${{ matrix.version }}
           arch: ${{ matrix.arch }}
           show-versioninfo: true
-      - uses: julia-actions/julia-runtest@v1
+      - name: Run the tests
+        shell: julia --color=yes {0}
+        run: |
+          using Pkg
+          Pkg.Registry.update()
+          Pkg.activate(".")
+          Pkg.test()
