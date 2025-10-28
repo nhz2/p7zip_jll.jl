@@ -61,6 +61,7 @@ function test_7z(f, encoder, decoder, p7zip_opt)
                     close(ts_source)
                     local p7z_out_hash = open(sha256, `$(p7zip()) x  -so -- $p7z_path`)
                     @test ts_out_hash == p7z_out_hash
+                    @test ts_out_hash == in_hash
                 end
             end
             open(ts_path) do io
@@ -69,6 +70,7 @@ function test_7z(f, encoder, decoder, p7zip_opt)
                 close(ts_source)
                 local p7z_out_hash = open(sha256, `$(p7zip()) x $ts_path -so`)
                 @test ts_out_hash == p7z_out_hash
+                @test ts_out_hash == in_hash
             end
         end
     end
