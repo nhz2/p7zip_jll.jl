@@ -1,0 +1,9 @@
+[deps]
+CodecBzip2 = "523fee87-0ab8-5b00-afb7-3ecf72e48cfd"
+CodecXz = "ba30903b-d9e8-5048-a5ec-d1f5b0d4b47b"
+CodecZlib = "944b1d66-785c-5afd-91f1-9de20f533193"
+CodecZstd = "6b39b394-51ab-5f42-8807-6242bab2b4c2"
+SHA = "ea8e919c-243c-51af-8825-aaa63cd721ce"
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+TranscodingStreams = "3bb67fe8-82b1-5028-8e26-92a6c54297fa"
+p7zip_jll = "3f19e933-33d8-53b3-aaab-bd5110c3b7a0"
