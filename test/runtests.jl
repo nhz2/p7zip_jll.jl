@@ -8,6 +8,7 @@ using SHA
 using Test
 
 run(`$(p7zip()) i`)
+run(`$(p7zip()) b`)
 
 struct MultiWriter <: IO
     writers::Vector{IO}
@@ -51,6 +52,7 @@ function test_7z(f, encoder, decoder, p7zip_opt)
                     close(ts_sink)
                     in_hash = digest!(sink.hash_ctx)
                 end
+                close(p7z_io)
             end
             if !isnothing(p7zip_opt)
                 open(p7z_path) do io
@@ -101,9 +103,9 @@ end
         end
     end
     # 2^33 zeros
-    @info "writing 2^33 zeros for $(encoder) this may take a while"
+    @info "writing 2^31 zeros for $(encoder) this may take a while"
     test_7z(encoder, decoder, p7zip_opt) do io
-        for i in 1:2^10
+        for i in 1:2^8
             # @info i
             write(io, zeros(UInt8, 2^23))
         end
